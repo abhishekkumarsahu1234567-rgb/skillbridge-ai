@@ -51,10 +51,17 @@ Documentation sources:
 
 ## Setup
 
-From the dedicated project folder:
+From the project folder:
 
 ```bash
-cd C:\Users\abhis\omnirush.ai\skillbridge-ai
+cd /path/to/skillbridge-ai
+npm ci
+```
+
+On Windows PowerShell, use:
+
+```powershell
+Set-Location C:\Users\abhis\omnirush.ai\skillbridge-ai
 npm ci
 ```
 
@@ -63,7 +70,6 @@ No `.env` file is required for the deterministic demo. `.env.example` is include
 ## Run locally
 
 ```bash
-cd C:\Users\abhis\omnirush.ai\skillbridge-ai
 npm run dev -- --host 127.0.0.1 --port 5173
 ```
 
@@ -101,6 +107,16 @@ npm test
 Run the typecheck and production build:
 
 ```bash
+npm run build
+```
+
+For a clean Linux/macOS rebuild using the pinned runtime and lockfile:
+
+```bash
+nvm install
+nvm use
+npm ci
+npm test
 npm run build
 ```
 
@@ -144,6 +160,26 @@ src/main.tsx
 - No user profile is persisted to a database; it exists in the current page session.
 - The included UI is a Vite development/preview application. Production hosting should use a suitable static asset server or the project's deployment platform.
 
+## Buildathon readiness
+
+Completed locally:
+
+- Responsive dark dashboard and accessible profile form
+- Skills, target-role, experience, and weekly-hours inputs
+- Validation, loading, error, and start states
+- Skill-gap cards and a practical six-week roadmap
+- Automated interaction and validation tests
+- Pinned Node runtime, npm lockfile, Dockerfile, MIT license, and GitHub-safe ignore rules
+- README setup, run, test, architecture, and limitation documentation
+
+Not verifiable in this environment:
+
+- An actual OmniRush agent response from the app
+- OmniRush MCP/OAuth connectivity
+- AI-generated roadmap content
+
+Until a supported OmniRush/OpenCode MCP runtime is configured and tested, the application must remain in **Local demo mode** and its deterministic roadmap must not be described as AI-generated.
+
 ## Docker
 
 ```bash
@@ -151,4 +187,4 @@ docker build -t skillbridge-ai .
 docker run --rm -p 5173:5173 skillbridge-ai
 ```
 
-The image runs the Vite server for local preview. It does not add or proxy any AI provider credentials.
+The image serves the built `dist/` output with Vite preview. It does not add or proxy any AI provider credentials.
