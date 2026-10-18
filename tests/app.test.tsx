@@ -32,8 +32,8 @@ describe('SkillBridge landing page', () => {
     expect(await screen.findByText(/local demo mode/i)).toBeInTheDocument()
     expect(screen.getByText(/product data analyst/i)).toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /six-week roadmap/i })).toBeInTheDocument()
-    expect(screen.getByText(/choose your proof project/i)).toBeInTheDocument()
-    expect(screen.getByText(/build technical depth/i)).toBeInTheDocument()
+    expect(screen.getByText(/build an analytics portfolio project/i)).toBeInTheDocument()
+    expect(screen.getByText(/strengthen your analysis toolkit/i)).toBeInTheDocument()
     expect(screen.getByText(/package your signal/i)).toBeInTheDocument()
 
     fireEvent.click(screen.getByRole('button', { name: /edit my profile/i }))
